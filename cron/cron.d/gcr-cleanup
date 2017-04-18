@@ -1,0 +1,3 @@
+SHELL=/bin/sh
+
+7 * * * * gcr-cleanup nice -19 /usr/local/bin/gcr-cleanup.sh
