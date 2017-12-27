@@ -8,7 +8,8 @@ RUN set -x \
               apt-transport-https \
               ca-certificates \
               curl \
-            	lsb-release \
+              gnupg2 \
+              lsb-release \
    && sed -i "s/httpredir.debian.org/`curl -s -D - http://httpredir.debian.org/demo/debian/ | awk '/^Link:/ { print $2 }' | sed -e 's@<http://\(.*\)/debian/>;@\1@g'`/" /etc/apt/sources.list \
    && export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" \
    && (echo "deb https://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" > /etc/apt/sources.list.d/google-cloud-sdk.list) \
